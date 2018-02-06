@@ -57,7 +57,6 @@
     <text class='fs24'>关于我们</text>
     <text class='fs24'>服务流程</text>
     <text class='fs24'>用户协议</text>
-  
   </view>
 
 </scroll-view>

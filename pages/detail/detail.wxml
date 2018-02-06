@@ -1,0 +1,42 @@
+<!--pages/detail/detail.wxml-->
+
+<scroll-view scroll-y style='height:auto;background:white'>
+
+  <view class='box box-tb' style='background:#666666;width:100%;height:48vh;margin-top:0px;'>
+    <image src='{{issue.image}}' style='width:100%;height:40vh;background:blue' mode='aspectFill'></image>
+    <view style='margin:2vh' class='box box-lr box-align-center'>
+      <text class='fs32' style='color:white'>故障表现：{{issue.content}}</text>
+    </view>
+  </view>
+  <view class='box box-lr'>
+    <view wx:for="{{services}}" class='box box-lr box-align-center' style='margin:10px'>
+      <image src='../../res/yes.png' style='width:15px;height:15px;margin:5px'></image>
+      <text class='fs32'>{{item}}</text>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title" style='margin-left:10px;margin-right:10px;'>
+    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd fs32">维修机型：{{type}}</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access fs28" >修改</view>
+    </navigator>
+  </view>
+
+  <view class='box box-tb box-pack-start' style='margin-left:10px;margin-right:10px;'>
+    <view class='box box-lr box-pack-between' style='margin:15px'>
+      <text class='fs32'>维修方案</text>
+      <view class='box box-lr box-align-center'>
+        <text class='fs32 gray-color'>维修说明</text>
+        <image src='../../res/question.png' style='width:20px;height:20px;margin-left:5px;'> </image>
+      </view>
+    </view >
+
+    <view wx:for="{{solutions}}" class='box box-lr box-pack-between' style='margin-left:15px;margin-right:15px;margin-bottom:10px;border:1px #f5f5f5 solid;padding:8px'>
+        <text class='fs32'>{{item.content}}</text>
+        <text class='fs32 main-color'>{{item.price}}</text>
+    </view>
+  </view>
+
+
+
+</scroll-view>
