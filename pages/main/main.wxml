@@ -1,0 +1,63 @@
+<!--pages/main/main.wxml-->
+
+<scroll-view scroll-y style='height:auto;background:#f5f5f5'>
+  <swiper style='height:30vh' indicator-dots="{{indicatorDots}}" indicator-color='{{indicatorColor}}' indicator-active-color='{{indicatorActiveColor}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}'>
+    <block wx:for="{{banners}}" wx:key="{{item}}">
+      <swiper-item>
+        <image class='' style='width:100%' mode='widthFix' src="{{item}}" bindtap='toDetail'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view style='padding-top:10px;background:white' class='box box-lr box-pack-around'>
+    <view wx:for='{{services}}' wx:key="{{item.name}}" class='box box-tb box-align-center'>
+      <image style='width:45px;' mode='widthFix' src='{{item.icon}}'></image>
+      <text class='fs28'>{{item.name}}</text>
+    </view>
+  </view>
+
+  <view style='margin-top:10px;' class='box box-lr box-wrap box-pack-around white-bg'>
+    <view wx:for='{{issues}}' wx:key="{{item.name}}" style='width:25vw;margin-top:10px;margin-bottom:10px' class='box box-tb box-align-center'>
+      <image style='width:25px;height:30px;' mode='aspectFit' src='{{item.icon}}'></image>
+      <text class='fs24'>{{item.name}}</text>
+    </view>
+  </view>
+
+  <view style='margin-top:10px; padding-bottom:10px' class='box box-tb white-bg fs36'>
+    <text style='font-weight:700;padding-left:20px;margin-top:10px;' class='fs28'>热门维修</text>
+    <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex;padding-left:10px;">
+      <view wx:for="{{popular}}" wx:key="{{item.name}}" class='inline-box box-tb box-align-center' style='width: 48vw; height: 100px;border:1px #f5f5f5 solid;border-radius: 10px;margin:5px;'>
+        <text style='margin-top:10px;'>{{item.type}}</text>
+        <text class='fs28' style='margin-bottom:5px'>{{item.problem}}</text>
+        <view style='width:100px;height:2px;background:#f5f5f5; '></view>
+        <text style='color:#de2d00;margin-top:5px;'>￥{{item.price}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view style='margin-top:10px;padding-bottom:10px;' class='box box-tb box-align-center white-bg'>
+    <view style='margin-top:10px;' class='box box-lr box-pack-center box-align-center'>
+      <text>一键下单</text>
+      <image src='../../res/right.png' style='width:15px;height:15px; margin-left:20px' mode='aspectFit'></image>
+    </view>
+    <text class='fs32 gray-color'>下单后，客服人员会与您联系确认问题</text>
+  </view>
+
+  <view style='margin-top:10px;padding:10px;' class='box box-tb box-align-center white-bg'>
+    <text class='fs36'>Hi维修实力</text>
+    <view class='box box-lr box-pack-between'>
+      <view wx:for="{{strengths}}" wx:key="{{item.name}}" style='width:30vw' class='box box-tb box-align-center'>
+        <image src='{{item.icon}}' style='width:30px;height:40px' mode='aspectFit'></image>
+        <text class='fs28'>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view style='margin-top:10px;padding:10px' class='box box-lr box-pack-around white-bg'>
+    <text class='fs24'>关于我们</text>
+    <text class='fs24'>服务流程</text>
+    <text class='fs24'>用户协议</text>
+  
+  </view>
+
+</scroll-view>

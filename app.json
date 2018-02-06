@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/main/main",
+    "pages/index/index",
+    "pages/logs/logs"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#f76622",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "text": "维修",
+        "iconPath": "./res/icon_tab_fix.png",
+        "selectedIconPath": "./res/icon_tab_fix_seleted.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "回收",
+        "iconPath": "./res/icon_tab_repay.png",
+        "selectedIconPath": "./res/icon_tab_repay_seleted.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "./res/icon_tab_user.png",
+        "selectedIconPath": "./res/icon_tab_user_seleted.png",
+        "text": "个人中心"
+      }
+    ]
+  }
+}
