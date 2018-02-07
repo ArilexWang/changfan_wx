@@ -4,20 +4,20 @@
   <swiper style='height:30vh' indicator-dots="{{indicatorDots}}" indicator-color='{{indicatorColor}}' indicator-active-color='{{indicatorActiveColor}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}'>
     <block wx:for="{{banners}}" wx:key="{{item}}">
       <swiper-item>
-        <image class='' style='width:100%' mode='widthFix' src="{{item}}" bindtap='toDetail'></image>
+        <image class='' style='width:100%' mode='widthFix' src="{{item}}"></image>
       </swiper-item>
     </block>
   </swiper>
 
   <view style='padding-top:10px;background:white' class='box box-lr box-pack-around'>
-    <view wx:for='{{services}}' wx:key="{{item.name}}" class='box box-tb box-align-center'>
+    <view wx:for='{{services}}' wx:key="{{item.name}}" id='{{item.id}}' bindtap='serviceClick'  class='box box-tb box-align-center'>
       <image style='width:45px;' mode='widthFix' src='{{item.icon}}'></image>
       <text class='fs28'>{{item.name}}</text>
     </view>
   </view>
 
   <view style='margin-top:10px;' class='box box-lr box-wrap box-pack-around white-bg'>
-    <view wx:for='{{issues}}' wx:key="{{item.name}}" style='width:25vw;margin-top:10px;margin-bottom:10px' class='box box-tb box-align-center'>
+    <view wx:for='{{issues}}' wx:key="{{item.name}}"  bindtap='toDetail' style='width:25vw;margin-top:10px;margin-bottom:10px' class='box box-tb box-align-center'>
       <image style='width:25px;height:30px;' mode='aspectFit' src='{{item.icon}}'></image>
       <text class='fs24'>{{item.name}}</text>
     </view>

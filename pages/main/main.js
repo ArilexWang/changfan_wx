@@ -17,18 +17,22 @@ Page({
     ],
     services: [
       {
+        id:'',
         icon: "../../res/mobile.png",
         name: "手机维修",
       },
       {
+        id: '',
         icon: "../../res/pad.png",
         name: "平板维修",
       },
       {
+        id: '',
         icon: "../../res/repay.png",
         name: "回收服务",
       },
       {
+        id: '',
         icon: "../../res/locate.png",
         name: "分店地址",
       },
@@ -103,8 +107,20 @@ Page({
       }
     ]
 
+
   },
 
+  toDetail:function(e){
+    console.log(e)
+    wx.navigateTo({
+      url: '../detail/detail',
+    })
+  },
+  serviceClick:function(e){
+    wx.navigateTo({
+      url: '../classify/classify',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,1 +1,33 @@
 /* pages/detail/detail.wxss */
+
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.7;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+.bottom_section{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 8vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.unseleted{
+  border:1px #f5f5f5 solid;
+}
+.seleted{
+  border:1px #f76622 solid;
+}
