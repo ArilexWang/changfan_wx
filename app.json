@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/main/main",
+    "pages/branch/branch",
     "pages/user/user",
-    
     "pages/recycle/recycle",
     "pages/model/model",
     "pages/classify/classify",

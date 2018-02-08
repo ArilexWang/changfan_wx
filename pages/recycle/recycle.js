@@ -22,7 +22,7 @@ Page({
       {
         model: 'iPhone6',
         image: 'http://p3pu3eqqb.bkt.clouddn.com/iphone.png',
-        heightest_price: 1750,
+        hightest_price: 1750,
       },
       {
         model: 'iPhone6',

@@ -121,6 +121,16 @@ Page({
       url: '../classify/classify',
     })
   },
+  recycleClick:function(e){
+    wx.switchTab({
+      url: '../recycle/recycle',
+    })
+  },
+  locateClick:function(e){
+    wx.navigateTo({
+      url: '../branch/branch',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -10,9 +10,18 @@
   </swiper>
 
   <view style='padding-top:10px;background:white' class='box box-lr box-pack-around'>
-    <view wx:for='{{services}}' wx:key="{{item.name}}" id='{{item.id}}' bindtap='serviceClick'  class='box box-tb box-align-center'>
-      <image style='width:45px;' mode='widthFix' src='{{item.icon}}'></image>
-      <text class='fs28'>{{item.name}}</text>
+    <view  bindtap='serviceClick'  class='box box-tb box-align-center'>
+      <image style='width:45px;' mode='widthFix' src='../../res/fix2.png'></image>
+      <text class='fs28'>手机维修</text>
+    </view>
+
+    <view  bindtap='recycleClick'  class='box box-tb box-align-center'>
+      <image style='width:45px;' mode='widthFix' src='../../res/repay.png'></image>
+      <text class='fs28'>回收服务</text>
+    </view>
+    <view  bindtap='locateClick'  class='box box-tb box-align-center'>
+      <image style='width:45px;' mode='widthFix' src='../../res/locate.png'></image>
+      <text class='fs28'>门店地址</text>
     </view>
   </view>
 

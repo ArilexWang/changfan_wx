@@ -1,0 +1,17 @@
+<!--pages/branch/branch.wxml-->
+<scroll-view scroll-y style='height:auto;background:#f5f5f5'>
+  
+  <view wx:for='{{branchs}}' class='box box-tb white-bg' style='margin-bottom:2px;'>
+    <view class='box box-lr box-align-center'>
+    <image src='{{item.image}}' style='width:90px;height:80px;border-radius:10px;margin:10px'></image>
+    <view class='box box-tb'>
+      <text>{{item.name}}</text>
+      <text class='fs28 gray-color'>服务时间：{{item.time}}</text>
+      <text class='fs28'>{{item.address}}</text>
+    </view>
+  </view>
+  </view>
+  
+
+
+</scroll-view>
