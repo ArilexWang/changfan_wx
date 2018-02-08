@@ -1,8 +1,11 @@
 {
   "pages": [
     "pages/main/main",
-    "pages/classify/classify",
+    "pages/user/user",
     
+    "pages/recycle/recycle",
+    "pages/model/model",
+    "pages/classify/classify",
     "pages/detail/detail",
     "pages/index/index",
     "pages/logs/logs"
@@ -25,13 +28,13 @@
         "selectedIconPath": "./res/icon_tab_fix_seleted.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/recycle/recycle",
         "text": "回收",
         "iconPath": "./res/icon_tab_repay.png",
         "selectedIconPath": "./res/icon_tab_repay_seleted.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/user/user",
         "iconPath": "./res/icon_tab_user.png",
         "selectedIconPath": "./res/icon_tab_user_seleted.png",
         "text": "个人中心"

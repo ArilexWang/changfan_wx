@@ -1,0 +1,75 @@
+<!--pages/recycle/recycle.wxml-->
+
+<scroll-view scroll-y style='height:auto;background:#f5f5f5'>
+  <view style='width:100%;height:33vh;'>
+    <image src='{{banner.img}}' style='width:100%;height:33vh;' mode='widthFit'></image>
+  </view>
+
+  <view class='box box-lr box-align-center white-bg' style='padding-top:10px;'>
+    <view class='box box-lr box-align-center' style='width:49.5vw'>
+      <view class='box box-tb' style='margin-left:10px;'>
+        <text class='fs32' style=''>手机回收</text>
+        <text class='fs24 gray-color' style='margin-top:5px;'>给旧手机找个家</text>
+      </view>
+      <image src='../../res/phone.png' style='width:60px;height:60px;'></image>
+    </view>
+    <view style='height: 50px;width:1px;background:#f5f5f5'></view>
+    <view class='box box-lr box-align-center' style='width:48vw'>
+      <view class='box box-tb' style='margin-left:10px;'>
+        <text class='fs32' style=''>平板回收</text>
+        <text class='fs24 gray-color' style='margin-top:5px;'>高价回收，钱不闲置</text>
+      </view>
+      <image src='../../res/pad2.png' style='width:60px;height:60px;'></image>
+    </view>
+  </view>
+
+  <view class='box box-tb white-bg ' style='margin-top:10px;'>
+    <view class='box box-lr box-align-center' style=''>
+      <image src='../../res/hot.png' style='width:12px;height:15px;margin:10px;'></image>
+      <text class='fs32'>热门回收机型</text>
+    </view>
+    <view class='box box-lr box-wrap'>
+      <view wx:for='{{hot_types}}' class='box box-tb box-align-center' style='width:49.4vw;height:40vh;border:1px #f5f5f5 solid'>
+        <image src='{{item.image}}' style='width:80px;height:130px;padding-top:20px;' mode='widthFit'></image>
+        <text class='fs32' style='margin:10px;'> {{item.model}}</text>
+        <view class='box box-lr box-align-center'>
+          <text class='fs28 gray-color'>回收最高价</text>
+          <text class='main-color'>￥{{item.hightest_price}}</text>
+        </view>
+      </view>
+    </view>
+
+
+    <view class='box box-align-center box-pack-center' style='margin-right:9vw;margin-left:9vw;margin-top:20px;margin-bottom:20px;width:82vw;height:6vh;background:#f5f5f5;border-radius:10px;'>
+      <text class='fs28 gray-color'>查看更多机型</text>
+    </view>
+  </view>
+
+  <view class='box box-tb box-align-center white-bg' style='margin-top:10px;padding-bottom:10px;width:100%'>
+    <text class='fs32' style='padding:10px;'>Hi回收承诺</text>
+
+    <view class='box box-lr box-pack-around' style='width:100%'>
+      <view class='box box-tb box-align-center'>
+        <image src='../../res/protect.png' mode='aspectFit' style='width:35px;height:35px;margin:5px;'></image>
+        <text class='fs28 gray-color'>隐私保护</text>
+      </view>
+      <view style='height: 50px;width:1px;background:#f5f5f5'></view>
+      <view class='box box-tb box-align-center'>
+        <image src='../../res/good.png' mode='aspectFit' style='width:35px;height:35px;margin:5px;'></image>
+        <text class='fs28 gray-color'>优质服务</text>
+      </view>
+      <view style='height: 50px;width:1px;background:#f5f5f5'></view>
+      <view class='box box-tb box-align-center'>
+        <image src='../../res/speed.png' mode='aspectFit' style='width:35px;height:35px;margin:5px;'></image>
+        <text class='fs28 gray-color'>当日到账</text>
+      </view>
+
+    </view>
+
+
+  </view>
+
+
+
+
+</scroll-view>
