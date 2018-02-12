@@ -1,0 +1,107 @@
+<!--pages/order/order.wxml-->
+
+<scroll-view scroll-y style='height:auto;background:#f5f5f5'>
+
+  <view wx:if='{{hasContact}}' class='box box-tb white-bg' style='padding:20px 20px 0px 20px;'>
+    <view class='box box-lr box-pack-between' style='width:100%'>
+      <view class='box box-lr box-pack-between'>
+        <text class='fs32'>{{contact.name}}</text>
+        <text class='fs32' style='padding-left:10px;'> {{contact.sex}} </text>
+      </view>
+      <view>
+        <text class='fs32' style=''>{{contact.tele_number}}</text>
+      </view>
+    </view>
+    <view>
+      <text class='fs28 gray-color'> {{contact.address}} </text>
+    </view>
+    <view class='box box-rl' style='width:100%'>
+      <text class='fs24 gray-color' style='text-decoration:underline'>其他地址</text>
+    </view>
+  </view>
+
+  <view wx:else class='box box-tb box-align-center white-bg' style='padding:20px;'>
+    <navigator url='' class='box box-lr box-align-center' style=''>
+      <image src='../../res/plus.png' style='width:18px;height:18px; margin:8px;'></image>
+      <text class='fs32'>添加服务地址</text>
+    </navigator>
+  </view>
+  <view class='white-bg'>
+    <image src='../../res/line.png' mode='widthFit' style='width:100vw;height:5px;'></image>
+  </view>
+
+  <view class="weui-cells " style='margin-top:10px;'>
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">维修方式</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access fs32" bindtap='fixClick'>{{fixType}}</view>
+    </view>
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">预约时间</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access fs32" bindtap='showModal'>{{fixTime}}</view>
+    </view>
+  </view>
+
+  <view class='box box-lr box-pack-between white-bg margin-top-10' >
+    <view class='box box-lr box-align-center ' style='margin:10px'>
+      <image src='{{model.icon}}' mode='aspectFill' style='width:50px;height:80px;margin:10px;'></image>
+      <view class='box box-tb' style='margin-left:10px'>
+        <text class='fs32'>{{model.type}}</text>
+        <text class='fs36'>{{model.problem}}</text>
+        <text class='fs24 gray-color'>颜色:{{model.color}}</text>
+      </view>
+    </view>
+    <view class='box box-lr box-align-start ' style='margin:10px'>
+      <text class='fs28' style='margin-top:15px;'>￥{{model.price}}</text>
+    </view>
+  </view>
+
+  <view class="weui-cells " style='margin-top:10px;'>
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">优惠券</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access fs32" bindtap=''>无优惠券可用</view>
+    </view>
+  </view>
+
+  <view class="weui-cells " style='margin-top:10px;'>
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">商品金额</view>
+      <view class="weui-cell__ft fs28" style='color:black' bindtap=''>￥{{model.price}}</view>
+    </view>
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">实付金额</view>
+      <view class="weui-cell__ft  fs28 main-color" bindtap=''>￥{{model.price}}</view>
+    </view>
+  </view>
+
+  <view class='box box-lr white-bg margin-top-10'>
+     <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd fs32">买家备注</view>
+      <input class='fs32' style='margin-left:10px;width:250px;' value='{{remark}}'  placeholder='选填：对本次交易的说明'></input>
+    </view>
+  </view>
+
+  <view class='' style='width:100vw;height:10vh;'></view>
+
+  <!-- 遮罩层 -->
+  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+
+  </view>
+
+
+
+</scroll-view>
+
+<view class='bottom_section'>
+  <view class='box box-tb' style='width:70%;background:white;padding-left:15px;'>
+    <view class='inline-box box-align-center  fs32 ' >
+      <text>总额：</text>
+      <text class='main-color'> ￥{{model.price}} </text>
+    </view>
+    <view class='inline-box box-align-center  fs24 ' >
+      提交订单等同于同意维修服务条款
+    </view>
+  </view>
+    
+    <text class='inline-box box-align-center box-pack-center fs32 ' bindtap='toComment' style='width:30%;background:#f76622;color:white;'>下一步</text>
+</view>

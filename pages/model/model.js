@@ -5,7 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    brand:{
+      name:"iPhone",
+      logo:"http://p3pu3eqqb.bkt.clouddn.com/logo.png"
+    },
+    models:[
+      "iPhone8", "iPhone8", "iPhone8", "iPhone8", "iPhone8", "iPhone8", "iPhone8", "iPhone8",
+    ]
+  },
+
+  modelClick:function(e){
+    wx.navigateTo({
+      url: '../classify/classify',
+    })
   },
 
   /**

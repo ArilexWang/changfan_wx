@@ -6,12 +6,16 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     var that = this
+
+    //获取本机型号
     wx.getSystemInfo({
       success: function (res) {
-        
-        that.globalData.model = res.model
+        //分割字符串
+        var arr = res.model.split('<')
+        that.globalData.model = arr[0]
       }
     })
+
 
     // 登录
     wx.login({

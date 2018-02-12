@@ -62,5 +62,5 @@
       <text wx:else class='main-color'> ￥{{price}} </text>
     </view>
     
-    <text class='inline-box box-align-center box-pack-center fs32 ' bindtap='toComment' style='width:30%;background:#f76622;color:white;'>下一步</text>
+    <text class='inline-box box-align-center box-pack-center fs32 ' bindtap='nextClick' style='width:30%;background:#f76622;color:white;'>下一步</text>
 </view>

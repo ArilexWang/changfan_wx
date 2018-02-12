@@ -1,2 +1,19 @@
 <!--pages/model/model.wxml-->
-<text>pages/model/model.wxml</text>
+
+<scroll-view  scroll-y style='height:auto;background:white'>
+  <view class='box box-pack-center box-align-center' style='width:100%;background:#f9fafc;height:7vh'>
+    <text class='fs32'>请选择{{brand.name}}型号</text>
+  </view>
+
+  <view class='box box-pack-center box-align-center' style='width:100%;height:auto;margin-top:20px'>
+    <image src='{{brand.logo}}' style='width:60px;height:75px;'></image>
+  </view>
+
+  <view class='box box-lr box-wrap box-align-center box-pack-center' style='width:100%;margin-top:20px;'>
+    <view class='box box-pack-center box-align-center' wx:for='{{models}}' style='border:1px gray solid;border-radius:5px;margin:10px;width:40vw;height:60px'  bindtap='modelClick'>
+      <text>{{item}}</text>
+    </view>
+  
+  </view>
+
+</scroll-view>

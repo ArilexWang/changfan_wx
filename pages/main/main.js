@@ -40,37 +40,30 @@ Page({
 
     issues: [
       {
-        icon:"../../res/screen.png",
-        name:"屏幕"
+        icon:"http://p3pu3eqqb.bkt.clouddn.com/iphone3.png",
+        name:"苹果"
       },
       {
-        icon: "../../res/button.png",
-        name: "按键"
+        icon: "http://p3pu3eqqb.bkt.clouddn.com/iphone3.png",
+        name: "华为"
       },
       {
-        icon: "../../res/housing.png",
-        name: "外壳/边框"
+        icon: "http://p3pu3eqqb.bkt.clouddn.com/iphone3.png",
+        name: "OPPO"
       },
       {
-        icon: "../../res/voice.png",
-        name: "声音"
+        icon: "http://p3pu3eqqb.bkt.clouddn.com/iphone3.png",
+        name: "小米"
       },
       {
-        icon: "../../res/camera.png",
-        name: "摄像与拍照"
+        icon: "http://p3pu3eqqb.bkt.clouddn.com/iphone3.png",
+        name: "三星"
       },
       {
-        icon: "../../res/battery.png",
-        name: "电池或不开机"
+        icon: "http://p3pu3eqqb.bkt.clouddn.com/iphone3.png",
+        name: "魅族"
       },
-      {
-        icon: "../../res/else.png",
-        name: "其他"
-      },
-      {
-        icon: "../../res/ram.png",
-        name: "内存升级"
-      },
+      
     ],
 
     popular: [
@@ -111,9 +104,8 @@ Page({
   },
 
   toDetail:function(e){
-    console.log(e)
     wx.navigateTo({
-      url: '../detail/detail',
+      url: '../model/model',
     })
   },
   serviceClick:function(e){

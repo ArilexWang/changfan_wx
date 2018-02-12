@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/main/main",
+    "pages/order/order",
+    "pages/model/model",
     "pages/branch/branch",
     "pages/user/user",
     "pages/recycle/recycle",
-    "pages/model/model",
     "pages/classify/classify",
     "pages/detail/detail",
     "pages/index/index",

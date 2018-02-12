@@ -162,6 +162,11 @@ Page({
       type: app.globalData.model
     })
   },
+  nextClick: function(e){
+    wx.navigateTo({
+      url: '../order/order',
+    })
+  },
 
   onLoad: function (options) {
     this.init()
