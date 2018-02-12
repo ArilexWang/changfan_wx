@@ -163,9 +163,17 @@ Page({
     })
   },
   nextClick: function(e){
-    wx.navigateTo({
-      url: '../order/order',
-    })
+    if(this.isChosen){
+      wx.navigateTo({
+        url: '../order/order',
+      })
+    } else{
+      wx.showToast({
+        title: '请选择服务项目',
+        icon:'none'
+      })
+    }
+    
   },
 
   onLoad: function (options) {

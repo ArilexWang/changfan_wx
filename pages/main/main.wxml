@@ -30,6 +30,9 @@
       <image style='width:50px;height:60px;' mode='aspectFit' src='{{item.icon}}'></image>
       <text class='fs24'>{{item.name}}</text>
     </view>
+    <view>
+      <navigator url='' class='fs28'>查看更多</navigator> 
+    </view>
   </view>
 
   <view style='margin-top:10px; padding-bottom:10px' class='box box-tb white-bg fs36'>
