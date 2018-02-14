@@ -1,8 +1,10 @@
 {
   "pages": [
-    
     "pages/main/main",
     "pages/order/order",
+    "pages/contact/contact",
+    
+    
     "pages/model/model",
     "pages/branch/branch",
     "pages/user/user",

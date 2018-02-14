@@ -1,0 +1,15 @@
+/* pages/contact/contact.wxss */
+
+.seletedSex{
+  background: #f76622;
+  color: white
+}
+
+.bottom_section{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 10vh;
+
+}

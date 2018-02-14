@@ -1,0 +1,43 @@
+<!--pages/contact/contact.wxml-->
+<view style='background:#f5f5f5;height:100vh'>
+  <view class='weui-cells box box-lr white-bg' style='padding-left:20px;'>
+    <view class='margin-top-10' style='20%'>联系人</view>
+    <view class="weui-cells " style='margin-top:0px;width:80%'>
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <input class="weui-cell__bd fs32" placeholder='请填写联系人的姓名' bindinput='bindNameInput' value='{{name}}'></input>
+      </view>
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="box box-pack-center box-align-center fs32 {{ sex ? 'seletedSex' : '' }}" style='border:1px gray solid;border-radius:15px;width:80px;height:30px;margin-right:15px;' data-sex='1' bindtap='sexTab'>先生</view>
+        <view class="box box-pack-center box-align-center fs32 {{ !sex ? 'seletedSex' : '' }}" data-sex='0' bindtap='sexTab' style='border:1px gray solid;border-radius:15px;width:80px;height:30px'>女士</view>
+      </view>
+    </view>
+  </view>
+  <view class='weui-cell weui-cell_access fs32 white-bg' hover-class="weui-cell_active">
+    <text style='width:90px;margin-right:10px;'>联系电话</text>
+    <input placeholder='请填写联系人的电话号码' style='width:100%' type='number' bindinput='bindNumInput' value='{{telenumber}}'></input>
+  </view>
+  <view class='weui-cell weui-cell_access fs32 white-bg box' hover-class="weui-cell_active">
+    <view class='box box-lr' bindtap='locationTab'>
+      <text style='width:75px;margin-right:5px;'>地址</text>
+      <text style='width:250px'>{{address_name}}</text>
+    </view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </view>
+  <view class='weui-cell weui-cell_access fs32 white-bg box box-pack-between' hover-class="weui-cell_active">
+    <view class='box box-lr'>
+      <text style='width:75px;margin-right:5px;'>详细地址</text>
+      <textarea style='width:250px;height:100px' value='{{address}}'></textarea>
+    </view>
+   
+  </view>
+
+  
+  <view class='bottom_section box box-pack-center box-align-center white-bg'>
+      <view class='box box-pack-center box-align-center' bindtap='confirmClick' style='background:#f76622;color:white;width:90%;height:40px;'>
+          确认
+      
+      </view>
+  
+  </view>
+
+</view>

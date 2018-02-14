@@ -31,8 +31,13 @@
   left: 0px;
   width: 100vw;
   height: 8vh;
+  z-index: 1000;
 
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+}
+
+.gray-bg{
+  background: #f8f8f8
 }
