@@ -1,0 +1,8 @@
+<!--pages/brand/brand.wxml-->
+<view style='margin-top:10px;' class='box box-lr box-wrap box-pack-around white-bg'>
+    <view wx:for='{{issues}}' wx:key="{{item.name}}"  bindtap='toDetail' style='width:33vw;margin-top:10px;margin-bottom:10px' class='box box-tb box-align-center' id='{{item.brandID}}'>
+      <image style='width:50px;height:60px;' mode='aspectFit' src='{{item.icon}}'></image>
+      <text class='fs24'>{{item.name}}</text>
+    </view>
+    
+  </view>

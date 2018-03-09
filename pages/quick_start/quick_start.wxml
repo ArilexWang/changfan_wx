@@ -1,0 +1,29 @@
+<view class='box box-tb light-gray-bg' style='height:100vh'>
+  <view class='white-bg' style='margin:5px'>
+    <input class='fs32' style='height:40px;margin-left:10px' bindinput='bindNameInput' value='{{name}}' placeholder='请输入您的姓名'></input>
+  </view>
+  <view class='white-bg' style='margin:5px'>
+    <input class='fs32' style='height:40px;margin-left:10px' type='number' bindinput='bindNumInput' value='{{telenumber}}' placeholder='请输入您的电话号码'></input>
+  </view>
+  <view class='white-bg box box-lr box-align-center fs32' style='margin:5px;height:40px;'>
+    <view class=' box box-lr' style=' margin-left:10px ' bindtap='locationTab'>
+      <text style='width:75px;margin-right:5px;'>地址</text>
+      <text style='width:250px;'>{{address_name}}</text>
+    </view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </view>
+  <view class='white-bg fs32' style='margin:5px;' >
+    <view class='box box-lr' style='margin-left:10px'>
+      <text style='width:75px;margin-right:5px;'>详细地址</text>
+      <textarea style='width:250px;height:100px' value='{{address}}'></textarea>
+    </view>
+   
+  </view>
+  <view class='bottom_section box box-pack-center box-align-center white-bg'>
+      <view class='box box-pack-center box-align-center' bindtap='confirmClick' style='background:#f76622;color:white;width:90%;height:40px;'>
+          立即下单
+      </view>
+  </view>
+</view>
+
+

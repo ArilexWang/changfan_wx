@@ -35,7 +35,6 @@
   <view class='bottom_section box box-pack-center box-align-center white-bg'>
       <view class='box box-pack-center box-align-center' bindtap='confirmClick' style='background:#f76622;color:white;width:90%;height:40px;'>
           确认
-      
       </view>
   
   </view>

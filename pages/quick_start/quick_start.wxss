@@ -1,0 +1,9 @@
+/* pages/quick_start/quick_start.wxss */
+.bottom_section{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 10vh;
+
+}

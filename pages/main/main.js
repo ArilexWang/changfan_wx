@@ -1,3 +1,5 @@
+var api = require("../../api/api.js")
+var app = getApp()
 // pages/main/main.js
 Page({
 
@@ -17,7 +19,7 @@ Page({
     ],
     services: [
       {
-        id:'',
+        id: '',
         icon: "../../res/mobile.png",
         name: "手机维修",
       },
@@ -40,8 +42,8 @@ Page({
 
     issues: [
       {
-        icon:"http://p3pu3eqqb.bkt.clouddn.com/iphone3.png",
-        name:"苹果"
+        icon: "http://p3pu3eqqb.bkt.clouddn.com/iphone3.png",
+        name: "苹果"
       },
       {
         icon: "http://p3pu3eqqb.bkt.clouddn.com/iphone3.png",
@@ -63,32 +65,16 @@ Page({
         icon: "http://p3pu3eqqb.bkt.clouddn.com/iphone3.png",
         name: "魅族"
       },
-      
+
     ],
 
     popular: [
-      {
-        type: 'iPhone6',
-        problem: '外屏碎（显示正常）',
-        price: 199
-      },
-      {
-        type: 'iPhone6',
-        problem: '外屏碎（显示正常）',
-        price: 199
-      },
-      {
-        type: 'iPhone6',
-        problem: '外屏碎（显示正常）',
-        price: 199
-      },
-
     ],
 
     strengths: [
       {
-        icon:'../../res/fix.png',
-        name:'Hi维修保障',
+        icon: '../../res/fix.png',
+        name: 'Hi维修保障',
       },
       {
         icon: '../../res/speed.png',
@@ -103,31 +89,86 @@ Page({
 
   },
 
-  toDetail:function(e){
+  toDetail: function (e) {
     wx.navigateTo({
-      url: '../model/model',
+      url: '../model/model?id='+e.currentTarget.id,
     })
   },
-  serviceClick:function(e){
+  serviceClick: function (e) {
     wx.navigateTo({
       url: '../classify/classify',
     })
   },
-  recycleClick:function(e){
+  recycleClick: function (e) {
     wx.switchTab({
       url: '../recycle/recycle',
     })
   },
-  locateClick:function(e){
+  locateClick: function (e) {
     wx.navigateTo({
       url: '../branch/branch',
     })
+  },
+  getBrandSuccess(res) {
+    console.log(res.data)
+    var _issues = []
+    for (var item in res.data) {
+      var tempbrand = {}
+      console.log(res.data[item])
+      var temp = res.data[item]
+      tempbrand.brandID = temp.pk
+      tempbrand.name = temp.fields._name
+      tempbrand.icon = temp.fields._thumbnail
+      tempbrand.description = temp.fields._description
+      _issues.push(tempbrand)
+    }
+    // console.log(_issues)
+    this.setData({
+      issues: _issues
+    })
+  },
+  getResponseFailed(res) {
+    console.log(res)
+  },
+  getBannerSuccess(res) {
+    console.log(res.data[0].fields._picture)
+    var _banner = []
+    var pictures = JSON.parse(res.data[0].fields._picture)
+    for (var item in pictures) {
+      var imgurl = pictures[item].picture
+      _banner.push(imgurl)
+    }
+    this.setData({
+      banners: _banner
+    })
+
+  },
+  getPopular(res){
+    console.log(res.data)
+    var _popular = []
+    for(var i in res.data){
+      var tempPopular = {}
+      var temp = res.data[i]
+      tempPopular.id = temp.pk
+      tempPopular.type = temp.fields._modelName
+      tempPopular.problem = temp.fields._name
+      tempPopular.price = temp.fields._price
+      _popular.push(tempPopular)
+    }
+    this.setData({
+      popular: _popular
+    })
+  },
+  popularClick(e){
+    console.log(e)
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    api.getAllBrands(this.getBrandSuccess, this.getResponseFailed)
+    api.getAllBanner(this.getBannerSuccess, this.getResponseFailed)
+    api.getPopularMalfunctionDetail(this.getPopular, this.getResponseFailed)
   },
 
   /**
@@ -141,7 +182,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    app.globalData.category = null
   },
 
   /**

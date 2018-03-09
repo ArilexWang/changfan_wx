@@ -1,4 +1,5 @@
 // pages/order/order.js
+var api = require("../../api/api.js")
 
 var calculate = require("./calculate")
 const app = getApp()
@@ -27,6 +28,7 @@ Page({
     hours:[],
     seletedDay: 0,
     seletedHour: 0,
+    order: {}
   },
   fixClick:function(e){
     var that = this;
@@ -103,6 +105,35 @@ Page({
       hours
     })
   },
+  createOrderSuccess(res){
+    console.log(res)
+  },
+
+  getUserSuccess(res){
+    console.log(res)
+    console.log(this.data.contact)
+    this.data.order.token = res.data[1].pk
+    this.data.order.address = this.data.contact.address
+    if(this.data.fixType == "上门维修"){
+      this.data.order.orderType = 0
+    } else {
+      this.data.order.orderType = 1
+    }
+    this.data.order.serveTime = this.data.fixTime
+    this.data.order.name = this.data.contact.name
+    this.data.order.comment = ""
+    this.data.order.tel = this.data.contact.telenumber
+    this.setData({
+      order: this.data.order
+    })
+    console.log(this.data.order)
+    api.createRepairOrder(this.data.order, this.createOrderSuccess, this.getResponseFail)
+  },
+
+  nextClicked(e){
+    console.log(this.data)
+    api.getUser(this.data.contact.telenumber, this.getUserSuccess, this.getResponseFail)
+  },
   tapDay(e){
     var idx = e.currentTarget.dataset.idx
     var _days = this.data.days
@@ -132,10 +163,39 @@ Page({
       url: '../contact/contact',
     })
   },
+  getModelSuccess(res){
+    console.log(res)
+    this.data.model.icon = res.data[0].fields._thumbnail
+    this.setData({
+      model: this.data.model
+    })
+  },
+  getDetailSuccess(res){
+    console.log(res)
+    var temp = res.data[0].fields
+    this.data.model.problem = temp._name
+    this.data.model.price = temp._price
+    this.data.model.type = app.globalData.model
+    var _order = {}
+    _order.modelID = temp._electronicsModel
+    _order.detailID = res.data[0].pk
+    this.setData({
+      model: this.data.model,
+      order: _order
+    })
+    api.getElectronicsModelByID(temp._electronicsModel, this.getModelSuccess, this.getResponseFail)
+  },
+  getResponseFail(res){
+    console.log(res)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    console.log(app.globalData)
+    var detailID = options.id
+    api.getMalfunctionDetailByID(detailID, this.getDetailSuccess, this.getResponseFail)
     this.calculateDays()
     this.calculateHours()
     var _contact = app.globalData.contact

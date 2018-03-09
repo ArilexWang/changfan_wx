@@ -1,5 +1,5 @@
 // pages/detail/detail.js
-
+var api = require("../../api/api.js")
 const app = getApp()
 
 Page({
@@ -15,24 +15,7 @@ Page({
     services: ["免费上门", "20分钟快修", "修完后付款"],
     type: "",
     solutions: [
-      {
-        id: '',
-        content: '外屏碎（显示正常）',
-        price: 320.00,
-        plan: '更换总成对换（质保：80天）（旧屏回收）',
-        time: '40分',
-        explain: '此服务产品使用非原装配件，使用非原装配件将不再享受厂家提供的保修服务',
 
-      },
-      {
-        id: '',
-        content: '内屏碎',
-        price: 620.00,
-        plan: '更换总成对换（质保：80天）（旧屏回收）',
-        time: '40分',
-        explain: '此服务产品使用非原装配件，使用非原装配件将不再享受厂家提供的保修服务',
-
-      }
     ],
     animationData: "",
     showModalStatus: false,
@@ -60,7 +43,6 @@ Page({
       if (min >= _solutions[i].price) min = _solutions[i].price
 
     }
-
     return min
   },
 
@@ -75,8 +57,6 @@ Page({
     })
     this.animation = animation
     animation.translateY(100).step()
-
-
     this.setData({
       animationData: animation.export(),
       showModalStatus: true
@@ -116,19 +96,17 @@ Page({
     const _solutions = this.data.solutions
     var _chosen = false
     var _price = 0
-    if(!this.data.isChosen){
+    if (!this.data.isChosen) {
       _solutions[idx].chosen = true
       this.isChosen = true
       _price = _solutions[idx].price
-    } else{
+    } else {
       for (var i = 0; i < _solutions.length; i++) {
         _solutions[i].chosen = false;
       }
       _solutions[idx].chosen = true;
       _price = _solutions[idx].price
     }
-
-
     this.setData({
       solutions: _solutions,
       isChosen: this.isChosen,
@@ -141,10 +119,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   init: function () {
-    var _max = this.getMaxPrice()
-    var _min = this.getMinPrice()
-    var _price = this.data.solutions[0].price
-
+    if (this.data.solutions.length > 0) {
+      var _max = this.getMaxPrice()
+      var _min = this.getMinPrice()
+      var _price = this.data.solutions[0].price
+    }
     if (this.data.solutions.length > 1) {
       this.setData({
         count: true,
@@ -162,22 +141,72 @@ Page({
       type: app.globalData.model
     })
   },
-  nextClick: function(e){
-    if(this.isChosen){
+  nextClick: function (e) {
+    
+    
+    if (this.isChosen) {
+      console.log(this.data.chosen_solution_index)
+      var index = this.data.chosen_solution_index
+      console.log(this.data.solutions[index])
+      var detailID = this.data.solutions[index].detailID
       wx.navigateTo({
-        url: '../order/order',
+        url: '../order/order?id=' + detailID,
       })
-    } else{
+    } else {
       wx.showToast({
         title: '请选择服务项目',
-        icon:'none'
+        icon: 'none'
       })
     }
-    
-  },
 
+  },
+  getDetailSucess(res) {
+    console.log(res.data)
+    var _solutions = []
+    if (res.data.length > 0) {
+      for (var i in res.data) {
+        var temp = res.data[i]
+        var tempcata = {}
+        tempcata.detailID = temp.pk
+        tempcata.name = temp.fields._name
+        tempcata.price = temp.fields._price
+        tempcata.content = temp.fields._repairInstructions
+        _solutions.push(tempcata)
+      }
+      this.setData({
+        solutions: _solutions,
+      })
+      var _max = this.getMaxPrice()
+      var _min = this.getMinPrice()
+      console.log(_max)
+      console.log(_min)
+      this.setData({
+        count: true,
+        max_price: _max,
+        min_price: _min,
+      })
+    }
+
+  },
+  getCategorySuccess(res){
+    console.log(res.data[0])
+    var temp = res.data[0].fields
+    var _issue = {}
+    _issue.image = temp._thumbnail
+    _issue.content = temp._description
+    this.setData({
+      issue: _issue
+    })
+  },
+  getResponseFailed(res) {
+    console.log(res)
+  },
   onLoad: function (options) {
     this.init()
+    console.log(options)
+    var categoryID = options.id
+    api.getMalfunctionDetailByCategory(categoryID, this.getDetailSucess, this.getResponseFailed)
+    api.getMalfunctionCategoryByID(categoryID, this.getCategorySuccess, this.getResponseFailed)
   },
 
   /**
