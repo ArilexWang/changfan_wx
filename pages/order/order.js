@@ -36,7 +36,6 @@ Page({
     wx.showActionSheet({
       itemList: ['上门维修', '到店维修'],
       success: function (res) {
-        
         that.setData({
           fixType: _itemList[res.tapIndex]
         })
@@ -107,8 +106,26 @@ Page({
   },
   createOrderSuccess(res){
     console.log(res)
+    if(res.statusCode === 200){
+      var that = this
+      wx.showToast({
+        title: '成功',
+        icon: 'success',
+        duration: 2000,
+        success: function(res){
+          wx.navigateTo({
+            url: '../main/main',
+          })
+        }
+      })
+      
+    }
   },
-
+  orderConfirm(){
+    wx.navigateTo({
+      url: '../main/main',
+    })
+  },
   getUserSuccess(res){
     console.log(res)
     console.log(this.data.contact)
